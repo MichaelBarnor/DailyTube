@@ -2,7 +2,7 @@ import React from 'react'
 import { LogIn } from 'lucide-react'
 export function Hero() {
   const handleLinktoYouTubeAuth = () =>{ // when lciked on this functon it should lead you to the correct link
-    window.location.href =  "http://127.0.0.1:4000/api/auth/google"
+    window.location.href =  "https://dailytube-e61b5db174d0.herokuapp.com/api/auth/google";
   }
   return (
     <section className="w-full py-16 md:py-24 px-6 md:px-10">

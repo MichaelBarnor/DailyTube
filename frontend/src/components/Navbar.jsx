@@ -4,7 +4,8 @@ import { LogIn } from 'lucide-react'
 export function Navbar() { // write a function that leads to the path i set up for liked videos
 
   const handleLinktoYouTubeAuth = () =>{ // when lciked on this functon it should lead you to the correct link
-    window.location.href =  "http://127.0.0.1:4000/api/auth/google"
+    window.location.href =  "https://dailytube-e61b5db174d0.herokuapp.com/api/auth/google";
+    // "http://127.0.0.1:4000/api/auth/google"
   }
 
   return (

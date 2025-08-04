@@ -125,7 +125,7 @@ useEffect(() => {
 
   const hanleLinktoSpotifyAuth = () =>{
     setLoading(true);
-    window.location.href =  "http://127.0.0.1:4000/api/auth/spotify"
+    window.location.href =  "https://dailytube-e61b5db174d0.herokuapp.com/api/auth/spotify"
    
   }
 
