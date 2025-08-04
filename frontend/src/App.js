@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { HomeLayout } from './components/HomeLayout'
-import { Dashboard } from './components/Dashboard';
+import { Dashboard } from './components/Dashboard'
+import { NotFound } from './components/NotFound' // Import your NotFound component
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 
-// Router configuration
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />
-  }, 
+  },
   {
     path: "/dashboard",
     element: <Dashboard />
@@ -16,10 +16,13 @@ const router = createBrowserRouter([
   {
     path: "/auth/callback",
     element: <Navigate to="/dashboard" replace />
+  },
+  {
+    path: "*",
+    element: <NotFound /> 
   }
-
-]);
+])
 
 export function App() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />
 }
