@@ -128,6 +128,7 @@ cron.schedule('0 3 * * *', async () => {
  
 
 // listens/starts server
-app.listen(4000,"127.0.0.1", () => {
-    console.log('listening from port', process.env.PORT)
-} );
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log('listening from port', PORT);
+});
