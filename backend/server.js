@@ -27,7 +27,7 @@ app.use(cors({
   credentials: true
 }));
 
-
+mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("MongoDB connected successfully"))
 .catch((err) => {
