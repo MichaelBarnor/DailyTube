@@ -5,9 +5,9 @@ const user = require("../models/user")
 const {initiatePlaylsit} = require("./initPlaylist")
 const {addSongtoPlaylsit} = require("./addSong")
 const {emptyPlaylist} =  require("./clearPlaylist")
-const Groq = require("groq-sdk");
 const { searchforSong } = require("./searchSong");
-const groq = new Groq();
+const Groq = require("groq-sdk");
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 
 
