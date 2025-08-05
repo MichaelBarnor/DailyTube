@@ -65,8 +65,7 @@ useEffect(() => {
     return;
   }
 
-  if (params.get('playlist_created') === 'true' && accessToken) {
-    (async () => {
+    (async () => { // calls current, if null dont show anything besides modal, if not nul set cover, tracks, and show playlist
       const data = await fetchWithAutoRefresh(
         '/api/playlist/current',
         accessToken,
@@ -91,7 +90,7 @@ useEffect(() => {
       setPlaylistTracks(data || []);
       setShowPlaylist(true);
     })();
-  }
+ 
 }, [accessToken]);
 
 
