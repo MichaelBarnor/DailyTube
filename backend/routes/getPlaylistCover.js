@@ -13,18 +13,24 @@ router.get('/', authenticateJWT, async (req, res) => {
     try {
       playlist = await getPlaylistCover(currentUser.spotifyAccessToken, currentUser.playlistId);
     } catch (err) {
-      // If token expired, refresh and retry
       if (err.response && err.response.status === 401 && currentUser.spotifyRefreshToken) {
-        const newSpotifyAccessToken = await refreshSpotifyToken(
-          currentUser.spotifyRefreshToken,
-          process.env.SPOTIFY_CLIENT_ID,
-          process.env.SPOTIFY_CLIENT_SECRET
-        );
-        await user.updateOne(
-          { userId: currentUser.userId },
-          { $set: { spotifyAccessToken: newSpotifyAccessToken } }
-        );
-        playlist = await getPlaylistCover(newSpotifyAccessToken, currentUser.playlistId);
+        console.log("Refreshing Spotify token for user:", currentUser.userId);
+        console.log("Refresh token:", currentUser.spotifyRefreshToken);
+        try {
+          const newSpotifyAccessToken = await refreshSpotifyToken(
+            currentUser.spotifyRefreshToken,
+            process.env.SPOTIFY_CLIENT_ID,
+            process.env.SPOTIFY_CLIENT_SECRET
+          );
+          await user.updateOne(
+            { userId: currentUser.userId },
+            { $set: { spotifyAccessToken: newSpotifyAccessToken } }
+          );
+          playlist = await getPlaylistCover(newSpotifyAccessToken, currentUser.playlistId);
+        } catch (refreshErr) {
+          console.error("Spotify token refresh failed:", refreshErr.response?.data || refreshErr.message);
+          return res.status(401).json({ error: "Spotify authentication failed. Please reconnect your account." });
+        }
       } else {
         throw err;
       }
