@@ -17,8 +17,8 @@ router.get('/', authenticateJWT, async (req, res) => {
       if (err.response && err.response.status === 401 && currentUser.spotifyRefreshToken) {
         const newSpotifyAccessToken = await refreshSpotifyToken(
           currentUser.spotifyRefreshToken,
-          process.env.SPOTIFY_CLIENT_ID,
-          process.env.SPOTIFY_CLIENT_SECRET
+          process.env.SPOTIFY_ID,
+          process.env.SPOTIFY_SECRET
         );
         await user.updateOne(
           { userId: currentUser.userId },
