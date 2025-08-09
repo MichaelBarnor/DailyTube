@@ -20,8 +20,8 @@ const { refreshYouTubeToken } = require('./refreshGoogleToken');
         try {
           const newSpotifyAccessToken = await refreshSpotifyToken(
             currentUser.spotifyRefreshToken,
-            process.env.SPOTIFY_CLIENT_ID,
-            process.env.SPOTIFY_CLIENT_SECRET
+            process.env.SPOTIFY_ID,
+            process.env.SPOTIFY_SECRET
           );
           await user.updateOne(
             { userId: currentUser.userId },
