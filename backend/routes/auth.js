@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken")
 router.get('/google', passport.authenticate('google', {
   scope: ['profile', 'email', 'https://www.googleapis.com/auth/youtube.readonly'], // ADDED THIS STUFF
   accessType: 'offline',
-  // prompt: 'consent'
+  prompt: 'consent'
 }));
 router.get('/spotify', passport.authenticate('spotify'));
 
@@ -17,12 +17,19 @@ router.get('/spotify', passport.authenticate('spotify'));
 router.get('/google/redirect', passport.authenticate('google', {
     failureRedirect: '/'
 }), async (req, res) => {
+  // Build the update object
+  const updateFields = {
+    userId: req.user.id,
+    accessToken: req.user.accessToken
+  };
+  // Only set youtubeRefreshToken if it exists
+  if (req.user.youtubeRefreshToken) {
+    updateFields.youtubeRefreshToken = req.user.youtubeRefreshToken;
+  }
+
   await user.updateOne(
     { userId: req.user.id },
-    { $set: { userId: 
-      req.user.id,
-      accessToken: req.user.accessToken,
-      youtubeRefreshToken: req.user.youtubeRefreshToken } },
+    { $set: updateFields },
     { upsert: true }
     );
     const currentUser = await user.findOne({ userId: req.user.id });
