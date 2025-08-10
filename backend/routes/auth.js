@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken")
 router.get('/google', passport.authenticate('google', {
   scope: ['profile', 'email', 'https://www.googleapis.com/auth/youtube.readonly'], // ADDED THIS STUFF
   accessType: 'offline',
-  prompt: 'consent'
+  // prompt: 'consent'
 }));
 router.get('/spotify', passport.authenticate('spotify'));
 

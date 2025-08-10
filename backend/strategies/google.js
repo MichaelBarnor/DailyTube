@@ -14,7 +14,7 @@ passport.use(new GoogleStrategy({
   callbackURL: process.env.GOOGLE_REDIRECT_URL,
   scope: ['profile', 'email', 'https://www.googleapis.com/auth/youtube.readonly'],
   accessType: 'offline',      // <-- Always request refresh token
-  prompt: 'consent'
+  // prompt: 'consent'
 }, async (accessToken, refreshToken, profile, done) => {
       console.log("Google refreshToken received:", refreshToken);
       console.log("GOOGLE LOGIN STRATEGY");
