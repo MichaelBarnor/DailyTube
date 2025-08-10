@@ -6,7 +6,11 @@ const user = require("../models/user")
 const jwt = require("jsonwebtoken")
 
 // Initial auth routes
-router.get('/google', passport.authenticate('google'));
+router.get('/google', passport.authenticate('google', {
+  scope: ['profile', 'email', 'https://www.googleapis.com/auth/youtube.readonly'], // ADDED THIS STUFF
+  accessType: 'offline',
+  prompt: 'consent'
+}));
 router.get('/spotify', passport.authenticate('spotify'));
 
 // Simple callbacks - let strategies handle the merging
