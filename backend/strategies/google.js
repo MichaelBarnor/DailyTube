@@ -16,7 +16,7 @@ passport.use(new GoogleStrategy({
   accessType: 'offline',      // <-- Always request refresh token
   prompt: 'consent'
 }, async (accessToken, refreshToken, profile, done) => {
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV === 'production') { // CHNAGE THIS BACK to !===
       console.log("Google refreshToken received:", refreshToken);
       console.log("GOOGLE LOGIN STRATEGY");
       console.log("Access token received:", !!accessToken);

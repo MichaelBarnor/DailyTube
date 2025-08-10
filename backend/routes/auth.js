@@ -19,7 +19,7 @@ router.get('/google/redirect', passport.authenticate('google', {
       req.user.id,
       accessToken: req.user.accessToken,
       youtubeRefreshToken: req.user.youtubeRefreshToken } },
-    { upsert: true }// what does upsert do?
+    { upsert: true }
     );
     const currentUser = await user.findOne({ userId: req.user.id });
 
@@ -41,7 +41,7 @@ router.get('/google/redirect', passport.authenticate('google', {
 });
 
 router.get('/spotify/redirect', passport.authenticate('spotify', {
-    failureRedirect: '/' //what is the point of this redirect, if we redirect if there is a error in playlist creation
+    failureRedirect: '/' 
 }), async(req, res) => {
   try{
     await user.updateOne(
@@ -105,7 +105,7 @@ router.get('/access-token', async (req, res) => {
 router.post('/logout', (req, res) => {
   res.clearCookie('refreshToken', {
     httpOnly: true,
-    secure: false, // or true in production
+    secure: true, // or true in production
     sameSite: 'strict'
   });
   if (req.logout) {

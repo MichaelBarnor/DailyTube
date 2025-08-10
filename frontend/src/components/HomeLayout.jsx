@@ -12,6 +12,7 @@ export function HomeLayout() {
       </main>
       <footer className="py-6 text-center text-gray-400 text-sm">
         <p>© 2025 DailyTube. All rights reserved.</p>
+        <a href = "link"
       </footer>
     </div>
   );
