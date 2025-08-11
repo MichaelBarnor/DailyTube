@@ -14,15 +14,15 @@ passport.use(new GoogleStrategy({
   callbackURL: process.env.GOOGLE_REDIRECT_URL,
   scope: ['profile', 'email', 'https://www.googleapis.com/auth/youtube.readonly'],
   accessType: 'offline',      // <-- Always request refresh token
-  // prompt: 'consent'
+
 }, async (accessToken, refreshToken, profile, done) => {
+      
+  if (process.env.NODE_ENV !== 'production') { 
       console.log("Google refreshToken received:", refreshToken);
       console.log("GOOGLE LOGIN STRATEGY");
       console.log("Access token received:", !!accessToken);
       console.log("Profile ID:", profile.id);
-  // if (process.env.NODE_ENV !== 'production') { // CHNAGE THIS BACK to !===
- 
-  //   }
+    }
 
   const user = {
     id: profile.id,

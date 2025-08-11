@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { ShowNoModal } from './showNoModal';
+import { ShowNoModal } from './ShowNoModal';
 import { Header } from './Header'
 import { FaSpotify } from 'react-icons/fa';
 import {

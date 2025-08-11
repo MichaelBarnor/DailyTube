@@ -14,8 +14,10 @@ router.get('/', authenticateJWT, async (req, res) => {
       playlist = await getPlaylistCover(currentUser.spotifyAccessToken, currentUser.playlistId);
     } catch (err) {
       if (err.response && err.response.status === 401 && currentUser.spotifyRefreshToken) {
+        if ( process.env.NODE_ENV !== "production"){
         console.log("Refreshing Spotify token for user:", currentUser.userId);
         console.log("Refresh token:", currentUser.spotifyRefreshToken);
+        }
         try {
           const newSpotifyAccessToken = await refreshSpotifyToken(
             currentUser.spotifyRefreshToken,

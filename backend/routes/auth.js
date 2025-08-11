@@ -9,15 +9,13 @@ const jwt = require("jsonwebtoken")
 router.get('/google', passport.authenticate('google', {
   scope: ['profile', 'email', 'https://www.googleapis.com/auth/youtube.readonly'], // ADDED THIS STUFF
   accessType: 'offline',
-  // prompt: 'consent'
 }));
 router.get('/spotify', passport.authenticate('spotify'));
 
-// Simple callbacks - let strategies handle the merging
 router.get('/google/redirect', passport.authenticate('google', {
     failureRedirect: '/'
 }), async (req, res) => {
-  // Build the update object
+  
   const updateFields = {
     userId: req.user.id,
     accessToken: req.user.accessToken

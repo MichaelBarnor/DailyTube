@@ -1,7 +1,10 @@
 import React from 'react'
 import { HomeLayout } from './components/HomeLayout'
 import { Dashboard } from './components/Dashboard'
-import { NotFound } from './components/NotFound' // Import your NotFound component
+import { NotFound } from './components/NotFound'
+import { PrivacyPolicy } from './components/PrivacyPolicy'
+
+
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -16,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/auth/callback",
     element: <Navigate to="/dashboard" replace />
+  },
+  {
+    path: "/privacy-policy",
+    element: <PrivacyPolicy />
   },
   {
     path: "*",
