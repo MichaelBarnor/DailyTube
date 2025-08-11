@@ -21,6 +21,6 @@ Here is the [link](https://dailytube-e61b5db174d0.herokuapp.com/) to the web app
 
 ## Technologies Used
 
-- **Frontend:** React, Tailwind CSS
+- **Frontend:** React, Tailwind CSS, HTML
 - **Backend:** Node.js, Express, MongoDB, Passport.js
 - **APIs:** YouTube Data API, Spotify Web API, Groq (Meta Llama 3)
