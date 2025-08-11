@@ -148,7 +148,8 @@ useEffect(() => {
     return Number(duration) || 0;
   }
 
-  const totalSeconds = playlistTracks.reduce(
+  
+  const totalSeconds = (playlistTracks || []).reduce(
     (sum, track) => sum + parseDuration(track.duration),
     0
   );
