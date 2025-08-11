@@ -87,7 +87,7 @@ useEffect(() => {
         setAccessToken
       );
       setPlaylistCover(playlistCover || "");
-      setPlaylistTracks(data || []);
+      setPlaylistTracks(Array.isArray(data) ? data : []);
       setShowPlaylist(true);
     })();
  
