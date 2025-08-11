@@ -1,12 +1,12 @@
 
-# DailyTube
+## DailyTube
 
 DailyTube is a web application that creates personalized Spotify playlists based on your YouTube liked videos and music preferences. It uses Google and Spotify OAuth, the YouTube Data API, Spotify Web API, and Meta Llama 3 (via Groq) for music recommendations.
 I am currently in the verification process of publishing my app. If you want access, I would need some additional information to approve you. Fill out this [link](https://docs.google.com/forms/d/e/1FAIpQLSeBAChBr835jkCL7L-mdgKqW31a7tvXREX-3318LuGUTKbLNA/viewform?usp=sharing&ouid=114680859289860888168) to get access to DailyTube.
 Here is the [link](https://dailytube-e61b5db174d0.herokuapp.com/) to the web app
 ---
 
-# Demo
+## Demo
 
 ## Features
 
