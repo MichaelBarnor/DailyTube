@@ -86,9 +86,11 @@ useEffect(() => {
         accessToken,
         setAccessToken
       );
+      const playlistArray = Array.isArray(data) ? data : [];
       setPlaylistCover(playlistCover || "");
-      setPlaylistTracks(Array.isArray(data) ? data : []);
-      setShowPlaylist(true);
+      setPlaylistTracks(playlistArray);
+      setShowPlaylist(playlistArray.length > 0);
+      
     })();
  
 }, [accessToken]);
