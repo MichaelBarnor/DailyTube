@@ -8,7 +8,7 @@ Here is the [link](https://dailytube-e61b5db174d0.herokuapp.com/) to the web app
 
 ## Demo
 
-[![Quick Demo](thumbnail-image.png)](https://youtu.be/Wt6QndtdTF0)
+[![Quick Demo](images/thumbnailfordemo.png)](https://youtu.be/Wt6QndtdTF0)
 
 
 ## Features
