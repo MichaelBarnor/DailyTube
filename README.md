@@ -8,6 +8,9 @@ Here is the [link](https://dailytube-e61b5db174d0.herokuapp.com/) to the web app
 
 ## Demo
 
+[![Quick Demo](thumbnail-image.png)](https://youtu.be/Wt6QndtdTF0)
+
+
 ## Features
 
 - **Google OAuth:** Securely sign in with your Google account.
